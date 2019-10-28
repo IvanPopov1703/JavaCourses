@@ -12,8 +12,7 @@ class Lesson2 {
      * хвост отбрасываем без откругления
      */
     static int formula(int x) {
-        double y = Math.sqrt((13 * x) + (13 / x));
-        return (int)y;
+        return  (int)Math.sqrt((13 * x) + (13 / x));
     }
 
     /**
@@ -29,12 +28,14 @@ class Lesson2 {
      *
      * @return возвращаем инициалы в верхнем регистре разделенные точкой, как в примере выше
      */
+
+
     static String initials(String fullName) {
         String result = "";
         String[] words = fullName.split(" ");
-        for (int i = 0; i < words.length; i++){
-            result = result.concat(String.valueOf(words[i].toUpperCase().charAt(0)) + ".");
-        }
+        result = result.concat(String.valueOf(words[0].toUpperCase().charAt(0)) + ".");
+        result = result.concat(String.valueOf(words[1].toUpperCase().charAt(0)) + ".");
+        result = result.concat(String.valueOf(words[2].toUpperCase().charAt(0)) + ".");
         return result;
     }
 }
