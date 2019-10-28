@@ -33,9 +33,9 @@ class Lesson2 {
     static String initials(String fullName) {
         String result = "";
         String[] words = fullName.split(" ");
-        result = result.concat(String.valueOf(words[0].toUpperCase().charAt(0)) + ".");
-        result = result.concat(String.valueOf(words[1].toUpperCase().charAt(0)) + ".");
-        result = result.concat(String.valueOf(words[2].toUpperCase().charAt(0)) + ".");
-        return result;
+        result += words[0].charAt(0) + ".";
+        result += words[1].charAt(0) + ".";
+        result += words[2].charAt(0) + ".";
+        return result.toUpperCase();
     }
 }
