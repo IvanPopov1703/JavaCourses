@@ -31,11 +31,7 @@ class Lesson2 {
 
 
     static String initials(String fullName) {
-        String result = "";
         String[] words = fullName.split(" ");
-        result += words[0].charAt(0) + ".";
-        result += words[1].charAt(0) + ".";
-        result += words[2].charAt(0) + ".";
-        return result.toUpperCase();
+        return (words[0].charAt(0) + "." + words[1].charAt(0) + "." + words[2].charAt(0) + ".").toUpperCase();
     }
 }
