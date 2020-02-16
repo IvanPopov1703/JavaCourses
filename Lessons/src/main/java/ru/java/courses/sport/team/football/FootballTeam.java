@@ -82,4 +82,12 @@ public class FootballTeam {
     public Coach getCoach() {
         return coach;
     }
+
+    public void addPlayer(FootballPlayer defender2) {
+    }
+
+    public void removePlayer(FootballPlayer defender1) {
+    }
+
+
 }

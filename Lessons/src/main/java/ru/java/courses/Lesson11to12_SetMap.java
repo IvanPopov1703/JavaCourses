@@ -1,19 +1,7 @@
 package ru.java.courses;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.stream.Collectors;
-import javax.swing.tree.TreeCellEditor;
 
 public class Lesson11to12_SetMap {
 
@@ -64,11 +52,31 @@ public class Lesson11to12_SetMap {
      * 3. Сортируем по имени и возрасту
      * 4. Возвращаем последнего пользователя
      */
-    public static User task1(Collection<User> source) {
-        // свой код нужно писать тут
-        // следующую строку можно удалять
 
-        return null;
+     static class UserNameComparator implements Comparator<User>{
+        public int compare(User us1, User us2) {
+            return us1.getName().compareTo(us2.getName());
+        }
+     }
+
+     static class UserAgeComparator implements  Comparator<User>
+     {
+         public int compare(User us1, User us2){
+             if (us1.getAge() > us2.getAge())
+                 return 1;
+             else
+                 if (us1.getAge() < us2.getAge())
+                     return -1;
+                 else
+                     return 0;
+         }
+     }
+
+    public static User task1(Collection<User> source) {
+        Comparator<User> comparator = new UserAgeComparator().thenComparing(new UserAgeComparator());
+        TreeSet<User> treeSet = new TreeSet<>(comparator);
+        treeSet.addAll(source);
+        return treeSet.last();
     }
 
     /**
@@ -79,10 +87,11 @@ public class Lesson11to12_SetMap {
      * 4. Вернуть количество записей в справочнике
      */
     public static int task2(Collection<User> source) {
-        // свой код нужно писать тут
-        // следующую строку можно удалять
-
-       return 0;
+        Map<String, String> map = new HashMap<String, String>();
+        for (User us : source) {
+            map.put(us.getPhone(), us.getName());
+        }
+        return map.size();
     }
 
 
@@ -97,8 +106,6 @@ public class Lesson11to12_SetMap {
      * Нумерация полок начинается с единицы!
      */
     public static Map task3(Collection<String> source) {
-        // свой код нужно писать тут
-        // следующую строку можно удалять
 
         return null;
     }
@@ -110,8 +117,10 @@ public class Lesson11to12_SetMap {
      * 5. Вернуть справочник [название книги -> номер полки]
      */
     public static Map task4(Map<Integer, String> source) {
-        // свой код нужно писать тут
-        // следующую строку можно удалять
-        return null;
+        Map<String, Integer> map = new HashMap<>();
+        for (Entry<Integer, String> num : source.entrySet()) {
+            map.put(num.getValue(), num.getKey());
+        }
+        return map;
     }
 }

@@ -36,7 +36,6 @@ public class Lesson11to12_SetMapTest {
     @Test
     public void task2() {
         List<User> users = Arrays.asList(new User("1234"), new User("36736"), new User("1244"), new User("234324"), new User("234"), new User("234"), new User("234346"), new User("1234"), new User("23523"), new User("2342342"));
-
         int result = Lesson11to12_SetMap.task2(users);
         Assertions.assertEquals(8 ,result, "Должно быть 8 записей");
     }

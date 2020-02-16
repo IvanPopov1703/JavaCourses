@@ -1,9 +1,8 @@
 package ru.java.courses;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import org.omg.CORBA.Object;
+
+import java.util.*;
 
 public class Lesson10_CollectionsLists {
 
@@ -19,9 +18,22 @@ public class Lesson10_CollectionsLists {
      * Удалять элементы из итерируемого списка нельзя - выпадет исключение
      */
     public static List<String> task1(List<Integer> source) {
-        // свой код нужно писать тут
-        // следующую строку можно удалять
-        return null;
+        List <Integer> tmpList = new ArrayList<>(source);
+        Collections.sort(tmpList);
+        int i = 0;
+        while (i < tmpList.size() - 1)
+        {
+            if (tmpList.get(i) == tmpList.get(i + 1))
+            {
+                tmpList.remove(i + 1);
+            }
+            else { i++; }
+        }
+        List<String> resultList = new ArrayList<>();
+        for (int num : tmpList) {
+            resultList.add(String.valueOf(num));
+        }
+        return resultList;
     }
 
     /**
@@ -34,8 +46,22 @@ public class Lesson10_CollectionsLists {
      * Подсказка: на входе может быть любое количество чисел
      */
     public static List<Integer> task2(Integer... array) {
-        // свой код нужно писать тут
-        // следующую строку можно удалять
-        return null;
+        List<Integer> list = new ArrayList<Integer>(Arrays.asList(array));
+        List<Integer> listResult = new ArrayList<>();
+        int i = 0;
+        for (int num : list) {
+            if (num % 2 == 0)
+            {
+                list.set(i, num + 1);
+            }
+            i++;
+        }
+        i = 3;
+        while (i < list.size() && i < 8)
+        {
+            listResult.add(list.get(i));
+            i++;
+        }
+        return listResult;
     }
 }
